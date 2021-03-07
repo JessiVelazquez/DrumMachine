@@ -29,6 +29,7 @@ i,svg {
     margin: 1rem 0.5rem;
     cursor: pointer;
     border-radius: 0.5rem;
+    border: solid 1.5px black;
 }
 
 .kick-pad {
@@ -36,7 +37,7 @@ i,svg {
 }
 
 .kick-pad.active {
-    background: rgb(37, 37, 157);
+    background: rgb(16, 16, 67);
 }
 
 .snare-pad {
@@ -44,7 +45,7 @@ i,svg {
 }
 
 .snare-pad.active {
-    background: rgb(25, 101, 152);
+    background: rgb(12, 50, 75);
 }
 
 .hihatclosed-pad {
@@ -52,7 +53,7 @@ i,svg {
 }
 
 .hihatclosed-pad.active {
-    background: rgb(22, 164, 124);
+    background: rgb(7, 55, 42);
 }
 
 .hihatopen-pad {
@@ -60,7 +61,7 @@ i,svg {
 }
 
 .hihatopen-pad.active {
-    background: rgb(107, 159, 17);
+    background: rgb(32, 48, 5);
 }
 
 .ride-pad {
@@ -68,7 +69,7 @@ i,svg {
 }
 
 .ride-pad.active {
-    background: rgb(171, 171, 10);
+    background: rgb(55, 55, 4);
 }
 
 .toms-pad {
@@ -76,7 +77,7 @@ i,svg {
 }
 
 .toms-pad.active {
-    background: rgb(169, 98, 12);
+    background: rgb(62, 36, 5);
 }
 
 .crash-pad {
@@ -84,7 +85,7 @@ i,svg {
 }
 
 .crash-pad.active {
-    background: rgb(159, 11, 11);
+    background: rgb(57, 4, 4);
 }
 
 .clap-pad {
@@ -92,7 +93,7 @@ i,svg {
 }
 
 .clap-pad.active {
-    background: rgb(121, 10, 49);
+    background: rgb(72, 6, 29);
 }
 
 .shaker-pad {
@@ -100,7 +101,7 @@ i,svg {
 }
 
 .shaker-pad.active {
-    background: rgb(140, 11, 165);
+    background: rgb(58, 5, 69);
 }
 
 .cowbell-pad {
@@ -108,7 +109,7 @@ i,svg {
 }
 
 .cowbell-pad.active {
-    background: rgb(81, 22, 198);
+    background: rgb(28, 8, 69);
 }
 
 .auxperc-pad {
