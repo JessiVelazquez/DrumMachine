@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    margin-top: 100px;
+}
+
+body {
+    background: rgb(32, 32, 38);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: rgb(246, 236, 196);
+}
+
+h1 {
+    margin-bottom: 5px;
+}
+
+i,svg {
+    pointer-events: none;
+}
+
+.kick-pad,.snare-pad,.hihatclosed-pad,.hihatopen-pad,.ride-pad,.toms-pad,.crash-pad,.clap-pad,.shaker-pad,.cowbell-pad,.auxperc-pad {
+    width: 5rem;
+    height: 2.5rem;
+    margin: 1rem 0.5rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+.kick-pad {
+    background: rgb(121, 121, 160);
+}
+
+.kick-pad.active {
+    background: rgb(37, 37, 157);
+}
+
+.snare-pad {
+    background: rgb(111, 134, 149);
+}
+
+.snare-pad.active {
+    background: rgb(25, 101, 152);
+}
+
+.hihatclosed-pad {
+    background: rgb(121, 160, 149);
+}
+
+.hihatclosed-pad.active {
+    background: rgb(22, 164, 124);
+}
+
+.hihatopen-pad {
+    background: rgb(146, 160, 121);
+}
+
+.hihatopen-pad.active {
+    background: rgb(107, 159, 17);
+}
+
+.ride-pad {
+    background: rgb(171, 171, 119);
+}
+
+.ride-pad.active {
+    background: rgb(171, 171, 10);
+}
+
+.toms-pad {
+    background: rgb(159, 139, 115);
+}
+
+.toms-pad.active {
+    background: rgb(169, 98, 12);
+}
+
+.crash-pad {
+    background: rgb(154, 108, 108);
+}
+
+.crash-pad.active {
+    background: rgb(159, 11, 11);
+}
+
+.clap-pad {
+    background: rgb(123, 91, 102);
+}
+
+.clap-pad.active {
+    background: rgb(121, 10, 49);
+}
+
+.shaker-pad {
+    background: rgb(157, 117, 165);
+}
+
+.shaker-pad.active {
+    background: rgb(140, 11, 165);
+}
+
+.cowbell-pad {
+    background: rgb(165, 144, 206);
+}
+
+.cowbell-pad.active {
+    background: rgb(81, 22, 198);
+}
+
+.auxperc-pad {
+    background: rgb(166, 153, 183);
+}
+
+.auxperc-pad.active {
+    background: rgb(48, 34, 65);
+}
+
+.kick-track,.snare-track,.hihatclosed-track,.hihatopen-track,.ride-track,.toms-track,.crash-track,.clap-track,.shaker-track,.cowbell-track,.auxperc-track {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    justify-content: space-between;
+}
+
+.kick,.snare,.hihatclosed,.hihatopen,.ride,.toms,.crash,.clap,.shaker,.cowbell,.auxperc {
+    display: flex;
+    background: rgb(47, 48, 52);
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.sequencer {
+    display: flex;
+    margin-top: 20px;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls {
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.controls button {
+    padding-top: 1.6px;
+    padding-bottom: 1.6px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: rgba(167, 254, 255, 0.77);
+    cursor: pointer;
+    color: rgb(24, 0, 0);
+    transition: all 0.5s ease;
+}
+
+.pad {
+    transition: all 0.5s ease;
+}
+
+.play {
+    padding: 0.5rem 2.5rem;
+    margin-top: 50px;
+    font-size: 1.5rem;
+    background: cornsilk;
+    color: black;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+select {
+    padding: .1rem;
+    font-size: 0.9rem;
+    background: rgb(223, 221, 212);
+}
