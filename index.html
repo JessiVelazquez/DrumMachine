@@ -101,7 +101,7 @@
         <div class="hihatclosed-track">
             <div class="controls">
                 <h1>Hi Hat Closed</h1>
-                <button data-track="3" class ="mute hihatclosed-volume">
+                <button data-track="2" class ="mute hihatclosed-volume">
                     <i class="fas fa-volume-mute"></i>
                 </button>
                 <select name="hihatclosed-select" id="hihatclosed-select">
@@ -133,7 +133,7 @@
         <div class="hihatopen-track">
             <div class="controls">
                 <h1>Hi Hat Open</h1>
-                <button data-track="4" class ="mute hihatopen-volume">
+                <button data-track="3" class ="mute hihatopen-volume">
                     <i class="fas fa-volume-mute"></i>
                 </button>
                 <select name="hihatopen-select" id="hihatopen-select">
@@ -339,6 +339,15 @@
         </div>
 
     <button class="play">Play</button>
+    <div class="tempo">
+        <input 
+            type="range" 
+            class="tempo-slider" 
+            max="300" min="20" 
+            value="120"
+        />
+        <p>Tempo (BPM): <span class="tempo-nr">120</span></p>
+    </div>
     <audio class="kick-sound" src="./sounds/kick-808.wav"></audio>
     <audio class="snare-sound" src="./sounds/snare-808.wav"></audio>
     <audio class="hihatclosed-sound" src="./sounds/hihat-808.wav"></audio>

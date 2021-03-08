@@ -27,7 +27,9 @@ class DrumKit {
         this.index = 0;
         this.bpm = 120;
         this.isPlaying = null;
-        this.selects = document.querySelectorAll('select')
+        this.selects = document.querySelectorAll('select');
+        this.muteBtns = document.querySelectorAll('.mute');
+        this.tempoSlider = document.querySelector('.tempo-slider');
     }
     activePad() {
         this.classList.toggle('active');
@@ -150,6 +152,96 @@ class DrumKit {
                 break;
         }
     }
+    mute(e) {
+        const muteIndex = e.target.getAttribute('data-track');
+        e.target.classList.toggle('active');
+        if(e.target.classList.contains('active')) {
+            switch (muteIndex) {
+                case '0':
+                    this.kickAudio.volume = 0;
+                    break;
+                case '1':
+                    this.snareAudio.volume = 0;
+                    break;
+                case '2':
+                    this.hihatclosedAudio.volume = 0;
+                    break;
+                case '3':
+                    this.hihatopenAudio.volume = 0;
+                    break;
+                case '4':
+                    this.rideAudio.volume = 0;
+                    break;
+                case '5':
+                    this.tomsAudio.volume = 0;
+                    break;
+                case '6':
+                    this.crashAudio.volume = 0;
+                    break;
+                case '7':
+                    this.clapAudio.volume = 0;
+                    break;
+                case '8':
+                    this.shakerAudio.volume = 0;
+                    break;
+                case '9':
+                    this.cowbellAudio.volume = 0;
+                    break;
+                case '10':
+                    this.auxpercAudio.volume = 0;
+                    break;
+            }
+        } else {
+            switch (muteIndex) {
+                case '0':
+                    this.kickAudio.volume = 1;
+                    break;
+                case '1':
+                    this.snareAudio.volume = 1;
+                    break;
+                case '2':
+                    this.hihatclosedAudio.volume = 1;
+                    break;
+                case '3':
+                    this.hihatopenAudio.volume = 1;
+                    break;
+                case '4':
+                    this.rideAudio.volume = 1;
+                    break;
+                case '5':
+                    this.tomsAudio.volume = 1;
+                    break;
+                case '6':
+                    this.crashAudio.volume = 1;
+                    break;
+                case '7':
+                    this.clapAudio.volume = 1;
+                    break;
+                case '8':
+                    this.shakerAudio.volume = 1;
+                    break;
+                case '9':
+                    this.cowbellAudio.volume = 1;
+                    break;
+                case '10':
+                    this.auxpercAudio.volume = 1;
+                    break;
+            }
+        }
+    }
+    changeTempo(e) {
+        const tempoText = document.querySelector('.tempo-nr');
+        this.bpm = e.target.value;
+        tempoText.innerText = e.target.value;
+    }
+    updateTempo() {
+        clearInterval(this.isPlaying);
+        this.isPlaying = null;
+        const playBtn = document.querySelector('.play');
+        if(playBtn.classList.contains('active')) {
+            this.start();
+        }
+    }
 }
 
 const drumKit = new DrumKit();
@@ -160,16 +252,30 @@ drumKit.pads.forEach(pad => {
     pad.addEventListener('click',drumKit.activePad);
     pad.addEventListener('animationend', function() {
         this.style.animation = "";
-    })
-})
+    });
+});
 
 drumKit.playBtn.addEventListener('click', function() {
     drumKit.updateBtn();
     drumKit.start();
-})
+});
 
 drumKit.selects.forEach(select => {
     select.addEventListener('change', function(e){
         drumKit.changeSound(e);
-    })
-})
+    });
+});
+
+drumKit.muteBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        drumKit.mute(e);
+    });
+});
+
+drumKit.tempoSlider.addEventListener('input', function(e) {
+    drumKit.changeTempo(e);
+});
+
+drumKit.tempoSlider.addEventListener('change', function(e) {
+    drumKit.updateTempo(e);
+});
