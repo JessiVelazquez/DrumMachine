@@ -2,6 +2,17 @@ class DrumKit {
     constructor(){
         this.pads = document.querySelectorAll('.pad');
         this.playBtn = document.querySelector('.play');
+        this.currentKick = './sounds/kick-808.wav'
+        this.currentSnare = './sounds/snare-808.wav'
+        this.currentHihatclosed = './sounds/hihat-808.wav'
+        this.currentHihatopen = './sounds/openhat-808.wav'
+        this.currentRide = './sounds/ride-acoustic01.wav'
+        this.currentToms = './sounds/tom-808.wav'
+        this.currentCrash = './sounds/crash-808.wav'
+        this.currentClap = './sounds/clap-808.wav'
+        this.currentShaker = './sounds/shaker-analog.wav'
+        this.currentCowbell = './sounds/cowbell-808.wav'
+        this.currentAuxperc = './sounds/perc-808.wav'
         this.kickAudio = document.querySelector('.kick-sound');
         this.snareAudio = document.querySelector('.snare-sound');
         this.hihatclosedAudio = document.querySelector('.hihatclosed-sound');
@@ -16,6 +27,7 @@ class DrumKit {
         this.index = 0;
         this.bpm = 120;
         this.isPlaying = null;
+        this.selects = document.querySelectorAll('select')
     }
     activePad() {
         this.classList.toggle('active');
@@ -99,9 +111,50 @@ class DrumKit {
             this.playBtn.classList.remove('active');
         }
     }
+    changeSound(e) {
+        const selectionName = e.target.name;
+        const selectionValue = e.target.value;
+        switch(selectionName) {
+            case 'kick-select':
+                this.kickAudio.src = selectionValue;
+                break;
+            case 'snare-select':
+                this.snareAudio.src = selectionValue;
+                break;
+            case 'hihatclosed-select':
+                this.hihatclosedAudio.src = selectionValue;
+                break;
+            case 'hihatopen-select':
+                this.hihatopenAudio.src = selectionValue;
+                break;
+            case 'ride-select':
+                this.rideAudio.src = selectionValue;
+                break;
+            case 'toms-select':
+                this.tomsAudio.src = selectionValue;
+                break;
+            case 'crash-select':
+                this.crashAudio.src = selectionValue;
+                break;
+            case 'clap-select':
+                this.clapAudio.src = selectionValue;
+                break;
+            case 'shaker-select':
+                this.shakerAudio.src = selectionValue;
+                break;
+            case 'cowbell-select':
+                this.cowbellAudio.src = selectionValue;
+                break;
+            case 'auxperc-select':
+                this.auxpercAudio.src = selectionValue;
+                break;
+        }
+    }
 }
 
 const drumKit = new DrumKit();
+
+//Event Listeners
 
 drumKit.pads.forEach(pad => {
     pad.addEventListener('click',drumKit.activePad);
@@ -113,4 +166,10 @@ drumKit.pads.forEach(pad => {
 drumKit.playBtn.addEventListener('click', function() {
     drumKit.updateBtn();
     drumKit.start();
+})
+
+drumKit.selects.forEach(select => {
+    select.addEventListener('change', function(e){
+        drumKit.changeSound(e);
+    })
 })
