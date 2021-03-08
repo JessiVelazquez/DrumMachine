@@ -158,11 +158,11 @@ i,svg {
     background: rgba(167, 254, 255, 0.77);
     cursor: pointer;
     color: rgb(24, 0, 0);
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .pad {
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .play {
@@ -179,4 +179,13 @@ select {
     padding: .1rem;
     font-size: 0.9rem;
     background: rgb(223, 221, 212);
+}
+
+@keyframes playTrack {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
 }

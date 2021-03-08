@@ -14,7 +14,7 @@ class DrumKit {
         this.cowbellAudio = document.querySelector('.cowbell-sound');
         this.auxpercAudio = document.querySelector('.auxperc-sound');
         this.index = 0;
-        this.bpm = 120;
+        this.bpm = 200;
     }
     activePad() {
         this.classList.toggle('active');
@@ -22,7 +22,49 @@ class DrumKit {
     repeat() {
         let step = this.index % 8;
         const activeBars = document.querySelectorAll(`.b${step}`)
-        console.log(step);
+        //loop over the pads
+        activeBars.forEach(bar => {
+            bar.style.animation = `playTrack 0.3s alternate ease-in-out 2`;
+            //check if pads are active
+            if(bar.classList.contains('active')) {
+                //check each sound
+                if(bar.classList.contains('kick-pad')) {
+                    this.kickAudio.currentTime = 0;
+                    this.kickAudio.play();
+                }
+                if(bar.classList.contains('snare-pad')) {
+                    // this.snareAudio.currentTime = 0;
+                    this.snareAudio.play();
+                }
+                if(bar.classList.contains('hihatclosed-pad')) {
+                    this.hihatclosedAudio.play();
+                }
+                if(bar.classList.contains('hihatopen-pad')) {
+                    this.hihatopenAudio.play();
+                }
+                if(bar.classList.contains('ride-pad')) {
+                    this.rideAudio.play();
+                }
+                if(bar.classList.contains('toms-pad')) {
+                    this.tomsAudio.play();
+                }
+                if(bar.classList.contains('crash-pad')) {
+                    this.crashAudio.play();
+                }
+                if(bar.classList.contains('clap-pad')) {
+                    this.clapAudio.play();
+                }
+                if(bar.classList.contains('shaker-pad')) {
+                    this.shakerAudio.play();
+                }
+                if(bar.classList.contains('cowbell-pad')) {
+                    this.cowbellAudio.play();
+                }
+                if(bar.classList.contains('auxperc-pad')) {
+                    this.auxpercAudio.play();
+                }
+            }
+        })
         this.index++;
     }
     start() {
@@ -37,6 +79,9 @@ const drumKit = new DrumKit();
 
 drumKit.pads.forEach(pad => {
     pad.addEventListener('click',drumKit.activePad);
+    pad.addEventListener('animationend', function() {
+        this.style.animation = "";
+    })
 })
 
 drumKit.playBtn.addEventListener('click', function() {
