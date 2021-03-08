@@ -14,7 +14,8 @@ class DrumKit {
         this.cowbellAudio = document.querySelector('.cowbell-sound');
         this.auxpercAudio = document.querySelector('.auxperc-sound');
         this.index = 0;
-        this.bpm = 200;
+        this.bpm = 120;
+        this.isPlaying = null;
     }
     activePad() {
         this.classList.toggle('active');
@@ -33,34 +34,43 @@ class DrumKit {
                     this.kickAudio.play();
                 }
                 if(bar.classList.contains('snare-pad')) {
-                    // this.snareAudio.currentTime = 0;
+                    this.snareAudio.currentTime = 0;
                     this.snareAudio.play();
                 }
                 if(bar.classList.contains('hihatclosed-pad')) {
+                    this.hihatclosedAudio.currentTime = 0;
                     this.hihatclosedAudio.play();
                 }
                 if(bar.classList.contains('hihatopen-pad')) {
+                    this.hihatopenAudio.currentTime = 0;
                     this.hihatopenAudio.play();
                 }
                 if(bar.classList.contains('ride-pad')) {
+                    this.rideAudio.currentTime = 0;
                     this.rideAudio.play();
                 }
                 if(bar.classList.contains('toms-pad')) {
+                    this.tomsAudio.currentTime = 0;
                     this.tomsAudio.play();
                 }
                 if(bar.classList.contains('crash-pad')) {
+                    this.crashAudio.currentTime = 0;
                     this.crashAudio.play();
                 }
                 if(bar.classList.contains('clap-pad')) {
+                    this.clapAudio.currentTime = 0;
                     this.clapAudio.play();
                 }
                 if(bar.classList.contains('shaker-pad')) {
+                    this.shakerAudio.currentTime = 0;
                     this.shakerAudio.play();
                 }
                 if(bar.classList.contains('cowbell-pad')) {
+                    this.cowbellAudio.currentTime = 0;
                     this.cowbellAudio.play();
                 }
                 if(bar.classList.contains('auxperc-pad')) {
+                    this.auxpercAudio.currentTime = 0;
                     this.auxpercAudio.play();
                 }
             }
@@ -68,10 +78,26 @@ class DrumKit {
         this.index++;
     }
     start() {
-            const interval = (60/this.bpm) * 1000;
-        setInterval(() => {
+        const interval = (60/this.bpm) * 1000;
+        //check if it's playing
+        if(!this.isPlaying) {
+        this.isPlaying = setInterval(() => {
             this.repeat();
-        }, interval);
+            }, interval);
+        } else {
+            //clear the interval
+            clearInterval(this.isPlaying);
+            this.isPlaying = null;
+        }
+    }
+    updateBtn() {
+        if(!this.isPlaying) {
+            this.playBtn.innerText = 'Stop';
+            this.playBtn.classList.add('active');
+        } else {
+            this.playBtn.innerText = 'Play';
+            this.playBtn.classList.remove('active');
+        }
     }
 }
 
@@ -85,5 +111,6 @@ drumKit.pads.forEach(pad => {
 })
 
 drumKit.playBtn.addEventListener('click', function() {
+    drumKit.updateBtn();
     drumKit.start();
 })
