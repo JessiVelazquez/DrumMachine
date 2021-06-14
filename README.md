@@ -1,6 +1,6 @@
 # DrumMachine
 
-Deployed Link: https://jessi-todo-react.herokuapp.com/
+Deployed Link: https://jessivelazquez.github.io/DrumMachine/
 
 A drum machine application using HTML, CSS, and Javascript.
 
